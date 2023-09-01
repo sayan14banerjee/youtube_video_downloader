@@ -5,7 +5,7 @@ from pytube import YouTube
 root = Tk()
 root.geometry('500x300')
 root.resizable(0,0)
-root.title("DataFlair-youtube video downloader")
+root.title("Sayan-youtube video downloader")
 
 Label(root,text = 'Youtube Video Downloader', font ='arial 20 bold').pack()
 
@@ -16,7 +16,7 @@ link_enter = Entry(root, width = 70,textvariable = link).place(x = 32, y = 90)
 
 def Downloader():     
     url =YouTube(str(link.get()))
-    video = url.streams.first()
+    video = url.streams.get_highest_resolution()
     video.download("E:/")
     Label(root, text = 'DOWNLOADED', font = 'arial 15').place(x= 180 , y = 210)  
 
